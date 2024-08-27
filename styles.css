@@ -1,0 +1,297 @@
+/* Estilos gerais */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #000000;
+  overflow: hidden;
+}
+
+/* Estilo das abas internas */
+.inner-tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-link {
+  background: #444;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}
+
+.tab-link.active {
+  background: #666;
+}
+
+.inner-tab-content {
+  display: none;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.inner-tab-content.active {
+  display: block;
+}
+
+/* Outros estilos permanecem os mesmos */
+
+/* Estilos gerais */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #000000;
+  overflow: hidden;
+}
+
+/* Tela de carregamento */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  transition: opacity 1s ease-out;
+}
+
+.logo {
+  width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+  height: auto;
+}
+
+/* Marca d'água */
+.watermark {
+  position: absolute;
+  bottom: 220px; /* Ajuste a altura da marca d'água */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Ajuste o tamanho da marca d'água conforme necessário */
+  height: 100px; /* Ajuste a altura conforme necessário */
+  background-image: url('https://ugc.production.linktr.ee/d177a15a-3a74-4b9d-8a25-71cae9adb0d9_IMG-20240610-154202-338.jpeg?io=true&size=avatar-v3_0'); /* Substitua 'watermark.png' pelo caminho da sua imagem */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1; /* Ajuste a transparência conforme necessário */
+  z-index: 2; /* Garante que a marca d'água esteja acima dos planetas */
+}
+
+/* Planetas em órbita */
+.planet {
+  position: absolute;
+  width: 50px; /* Ajuste o tamanho dos planetas */
+  height: 50px;
+  background-size: cover;
+  border-radius: 50%;
+  z-index: 1; /* Garante que os planetas estejam abaixo da marca d'água */
+}
+
+.orbit-1 {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/018/888/749/original/cartoon-planet-icon-png.png');
+  animation: orbit 20s infinite linear;
+}
+
+.orbit-2 {
+  background-image: url('https://cdn.pixabay.com/photo/2016/04/01/08/43/cartoon-1298905_1280.png');
+  animation: orbit 25s infinite linear;
+}
+
+.orbit-3 {
+  background-image: url('https://images.vexels.com/content/203280/preview/mars-planet-illustration-32a3e2.png');
+  animation: orbit 30s infinite linear;
+}
+
+.orbit-4 {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/014/012/718/original/purple-planet-space-illustration-png.png');
+  animation: orbit 35s infinite linear;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+/* Fundo simulando espaço com roxo e variações */
+.space-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #1a1a40, #3b1e59, #502a70, #602f7a, #73388f);
+  background-size: 200% 200%;
+  animation: backgroundShift 20s infinite ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Estilo das estrelas */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out, oscillate 5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes oscillate {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
+}
+
+/* Estrelas cadentes */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(white, transparent);
+  animation: shoot 1s linear infinite;
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300px) translateY(300px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Estilo do conteúdo principal */
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Estilo da barra lateral inferior flutuante */
+.bottom-sidebar {
+  position: fixed;
+  bottom: 20px; /* Ajuste a altura da barra */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Ajuste a largura da barra */
+  background: #fff;
+  padding: 10px 0;
+  border-radius: 25px; /* Deixa a barra com cantos arredondados */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para o efeito flutuante */
+  z-index: 3;
+}
+
+.bottom-sidebar ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.bottom-sidebar li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  font-size: 2rem; /* Tamanho do ícone */
+  text-decoration: none;
+}
+
+.bottom-sidebar li a:hover {
+  color: #ffcc00; /* Cor dos ícones ao passar o mouse */
+}
+
+/* Estilo das abas flutuantes */
+.floating-abs {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Oculta inicialmente */
+  width: 80%;
+  max-height: 80%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+  z-index: 4;
+}
+
+.floating-tab {
+  display: none; /* Oculta as abas individualmente inicialmente */
+  padding: 20px;
+  color: white;
+}
+
+.floating-tab.active {
+  display: block; /* Mostra a aba ativa */
+}
+/* Estilos das sub-abas internas */
+.sub-inner-tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.sub-tab-link {
+  background: #666;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}
+
+.sub-tab-link.active {
+  background: #888;
+}
+
+.sub-inner-tab-content {
+  display: none;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+.sub-inner-tab-content.active {
+  display: block;
+}
+
+/* Outros estilos permanecem os mesmos */
