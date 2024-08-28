@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
   // Criar estrelas cadentes aleatórias a cada intervalo de tempo
   setInterval(createShootingStar, 2000);
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('.floating-tab');
   const sidebarLinks = document.querySelectorAll('.bottom-sidebar a');
   const loadingScreen = document.querySelector('.loading-screen');
-  const watermark = document.querySelector('.watermark');
 
   // Simula o carregamento
   setTimeout(() => {
@@ -74,45 +74,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para alternar entre abas flutuantes
-    const sidebarLinks = document.querySelectorAll('.bottom-sidebar li a');
-    const floatingTabs = document.querySelectorAll('.floating-tab');
+  // Lógica para alternar entre abas flutuantes
+  const sidebarLinks = document.querySelectorAll('.bottom-sidebar li a');
+  const floatingTabs = document.querySelectorAll('.floating-tab');
 
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(`#${link.getAttribute('data-target')}`);
-            floatingTabs.forEach(tab => tab.classList.remove('active'));
-            target.classList.add('active');
-        });
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(`#${link.getAttribute('data-target')}`);
+      floatingTabs.forEach(tab => tab.classList.remove('active'));
+      target.classList.add('active');
+    });
+  });
+
+  // Lógica para alternar entre abas internas
+  const tabLinks = document.querySelectorAll('.tab-link');
+  const tabContents = document.querySelectorAll('.inner-tab-content');
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const target = document.querySelector(`#${link.getAttribute('data-target')}`);
+      tabLinks.forEach(btn => btn.classList.remove('active'));
+      link.classList.add('active');
+      tabContents.forEach(content => content.classList.remove('active'));
+      target.classList.add('active');
+    });
+  });
+
+  // Lógica para alternar entre sub-abas internas
+  const subTabLinks = document.querySelectorAll('.sub-tab-link');
+  const subTabContents = document.querySelectorAll('.sub-inner-tab-content');
+
+  subTabLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const target = document.querySelector(`#${link.getAttribute('data-target')}`);
+      subTabLinks.forEach(btn => btn.classList.remove('active'));
+      link.classList.add('active');
+      subTabContents.forEach(content => content.classList.remove('active'));
+      target.classList.add('active');
+    });
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const sendButton = document.getElementById('send-button');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.querySelector('.chat-messages');
+
+    sendButton.addEventListener('click', () => {
+        if (chatInput.value.trim() !== "") {
+            const message = document.createElement('div');
+            message.classList.add('chat-message');
+            message.textContent = chatInput.value;
+            chatMessages.appendChild(message);
+            chatInput.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Rola para a mensagem mais recente
+        }
     });
 
-    // Lógica para alternar entre abas internas
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabContents = document.querySelectorAll('.inner-tab-content');
-
-    tabLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const target = document.querySelector(`#${link.getAttribute('data-target')}`);
-            tabLinks.forEach(btn => btn.classList.remove('active'));
-            link.classList.add('active');
-            tabContents.forEach(content => content.classList.remove('active'));
-            target.classList.add('active');
-        });
-    });
-
-    // Lógica para alternar entre sub-abas internas
-    const subTabLinks = document.querySelectorAll('.sub-tab-link');
-    const subTabContents = document.querySelectorAll('.sub-inner-tab-content');
-
-    subTabLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const target = document.querySelector(`#${link.getAttribute('data-target')}`);
-            subTabLinks.forEach(btn => btn.classList.remove('active'));
-            link.classList.add('active');
-            subTabContents.forEach(content => content.classList.remove('active'));
-            target.classList.add('active');
-        });
+    // Opcional: permitir envio com Enter
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
     });
 });
