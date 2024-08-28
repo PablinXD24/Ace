@@ -8,49 +8,6 @@ body, html {
   overflow: hidden;
 }
 
-/* Estilo das abas internas */
-.inner-tabs {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.tab-link {
-  background: #444;
-  border: none;
-  padding: 10px;
-  margin-right: 5px;
-  cursor: pointer;
-  color: white;
-  border-radius: 5px;
-}
-
-.tab-link.active {
-  background: #666;
-}
-
-.inner-tab-content {
-  display: none;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-}
-
-.inner-tab-content.active {
-  display: block;
-}
-
-/* Outros estilos permanecem os mesmos */
-
-/* Estilos gerais */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  color: #000000;
-  overflow: hidden;
-}
-
 /* Tela de carregamento */
 .loading-screen {
   position: fixed;
@@ -263,6 +220,38 @@ body, html {
 .floating-tab.active {
   display: block; /* Mostra a aba ativa */
 }
+
+/* Estilos das sub-abas internas */
+.inner-tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab-link {
+  background: #444;
+  border: none;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}
+
+.tab-link.active {
+  background: #666;
+}
+
+.inner-tab-content {
+  display: none;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.inner-tab-content.active {
+  display: block;
+}
+
 /* Estilos das sub-abas internas */
 .sub-inner-tabs {
   display: flex;
@@ -294,4 +283,84 @@ body, html {
   display: block;
 }
 
-/* Outros estilos permanecem os mesmos */
+
+/* Estilo da aba de chat */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chat-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #502a70; /* Tom roxo para o cabeçalho */
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.chat-messages .message {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.chat-messages .message .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #73388f; /* Cor de fundo para o avatar */
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.chat-messages .message .text {
+  max-width: 75%;
+  background-color: #602f7a; /* Fundo roxo para as mensagens */
+  color: #000000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chat-messages .message.self .text {
+  background-color: #444; /* Fundo cinza escuro para mensagens enviadas */
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 15px;
+}
+
+.chat-input input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #73388f; /* Borda roxa */
+  outline: none;
+  font-size: 1rem;
+}
+
+.chat-input button {
+  background-color: #502a70; /* Botão roxo */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #73388f; /* Efeito de hover no botão */
+}
